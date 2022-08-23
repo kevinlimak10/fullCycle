@@ -1,1 +1,1 @@
-# Repositorio para o conteudo do curso full cycle
+# reRepositorio contendo exercícios do curso full cycle
