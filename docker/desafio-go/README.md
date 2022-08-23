@@ -1,4 +1,4 @@
-# full_cycle_docker_desafio_go
+# Full cycle - docker - desafio Go
 Contem o desafio go do curso full cycle
 
 Esse desafio é muito empolgante principalmente se você nunca trabalhou com a linguagem Go!
