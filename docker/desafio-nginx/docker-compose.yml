@@ -16,13 +16,20 @@ services:
     ports:
       - 8080:80
       - 3306:3306
-  mysql:
-    image: kevinlimak10/mysql:latest
+  db:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
     container_name: mysql
+    restart: always
+    tty: true
+    volumes:
+      - ./mysql:../mysql
+    environment:
+      - MYSQL_DATABASE=nodedb
+      - MYSQL_ROOT_PASSWORD=root
     networks:
       - nodenet
-    ports:
-      - 3306:3306
+    
 networks:
   nodenet:
     driver: bridge
