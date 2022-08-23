@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  node:
+    image: kevinlimak10/node:latest
+    container_name: node
+    networks:
+      - nodenet
+
+  nginx: 
+    image: kevinlimak10/nginx:latest
+    container_name: nginx
+    networks: 
+      - nodenet
+    ports:
+      - 8080:80
+      - 3306:3306
+  mysql:
+    image: kevinlimak10/mysql:latest
+    container_name: mysql
+    networks:
+      - nodenet
+    ports:
+      - 3306:3306
+networks:
+  nodenet:
+    driver: bridge

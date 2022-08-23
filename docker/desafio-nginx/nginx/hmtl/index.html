@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Cycle</title>
+    <script>
+        function httpGet(theUrl) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", theUrl, false); // false for synchronous request
+            xmlHttp.send(null);
+            return xmlHttp.responseText;
+        }
+        function loadTableData(items) {
+            const table = document.getElementById("tabela");
+            items.forEach(item => {
+                let row = table.insertRow();
+                let user = row.insertCell(0);
+                user.innerHTML = item.user;
+            });
+        }
+        let listaUsuarios = []
+        listaUsuarios = httpGet('http://localhost:8080/users')
+        loadTableData(listaUsuarios)
+    </script>
+</head>
+
+<body>
+    <h1>Full Cycle Rocks!</h1>
+    <thead>
+        <tr>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody id="tabela"></tbody>
+</body>
+
+</html>
